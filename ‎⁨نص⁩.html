@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع التشفير وفك التشفير</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>موقع التشفير وفك التشفير</h1>
+
+<!-- خيار التشفير -->
+<h3>التشفير</h3>
+<input type="text" id="textToEncrypt" placeholder="أدخل النص للتشفير">
+<button onclick="encryptText()">تشغيل التشفير</button>
+
+<!-- خيار فك التشفير -->
+<h3>فك التشفير</h3>
+<input type="text" id="textToDecrypt" placeholder="أدخل النص لفك التشفير">
+<button onclick="decryptText()">تشغيل فك التشفير</button>
+
+<!-- عرض النتيجة -->
+<div id="result"></div>
+
+<script>
+    // دالة التشفير
+    function encryptText() {
+        let text = document.getElementById("textToEncrypt").value;
+        let encryptedText = "";
+        for (let i = 0; i < text.length; i++) {
+            let char = text.charCodeAt(i);
+            let encryptedChar = char + 3; // يمكن تعديل هذه القيمة
+            encryptedText += String.fromCharCode(encryptedChar);
+        }
+        document.getElementById("result").textContent = "النص المشفر: " + encryptedText;
+    }
+
+    // دالة فك التشفير
+    function decryptText() {
+        let text = document.getElementById("textToDecrypt").value;
+        let decryptedText = "";
+        for (let i = 0; i < text.length; i++) {
+            let char = text.charCodeAt(i);
+            let decryptedChar = char - 3; // نفس القيمة المستخدمة في التشفير
+            decryptedText += String.fromCharCode(decryptedChar);
+        }
+        document.getElementById("result").textContent = "النص المفكوك: " + decryptedText;
+    }
+</script>
+
+</body>
+</html>
